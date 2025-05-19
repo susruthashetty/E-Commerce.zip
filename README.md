@@ -1,92 +1,113 @@
-🛒 FreshMart - Full Stack E-Commerce Application FreshMart is a full-stack e-commerce platform designed for scalable online shopping experiences. Built with a powerful Spring Boot backend, a responsive React frontend, and a model layer for intelligent operations.
+FreshMart - E-Commerce Backend
+Welcome to FreshMart — a simple, scalable, and secure e-commerce backend application developed with Spring Boot.
+This project provides RESTful APIs to manage products, orders, customers, and user authentication — forming a strong foundation for an online shopping platform.
 
-📚 Project Structure plaintext Copy code freshmart/ ├── client/ # Frontend - React Application ├── server/ # Backend - Spring Boot APIs ├── model/ # Models or Integrations (Business Logic / ML Models) 🛠️ Tech Stack Frontend (Client):
+🛠️ Tech Stack
+Programming Language: Java 17+
 
-React.js
+Framework: Spring Boot
 
-Axios (for API calls)
+Security: Spring Security, CORS Filter
 
-Tailwind CSS or Bootstrap (for styling)
+Build Tool: Maven
 
-Backend (Server):
+Database: MySQL (can be configured for any relational database)
 
-Java 17+
+Deployment Ready: Docker (optional)
 
-Spring Boot
-
-Spring Security (Authentication & Authorization)
-
-MySQL Database
-
-Maven (Build Tool)
-
-Model:
-
-Business Entity Models
-
-(Optional) Machine Learning Models (if integrated)
-
-Deployment Ready:
-
-Docker Support
-
-Cloud-Friendly Architecture
-
-🚀 Getting Started Prerequisites Node.js (for React client)
-
-Java 17+ (for server)
+📂 Project Structure
+plaintext
+Copy
+Edit
+freshmart_final/
+└── final_spring/
+    ├── pom.xml                      # Maven project configuration
+    ├── mvnw, mvnw.cmd                # Maven wrapper scripts
+    ├── .gitignore                    # Git ignore rules
+    ├── src/
+    │   └── main/
+    │       ├── java/
+    │       │   └── com/
+    │       │       └── ecommerce/
+    │       │           ├── ECommerceApplication.java    # Main class to bootstrap Spring Boot
+    │       │           ├── configuration/
+    │       │           │   ├── SimpleCorsFilter.java     # CORS setup
+    │       │           │   └── WebSecurityConfiguration.java # Spring Security configuration
+    │       │           ├── controller/
+    │       │           │   └── [Your API Controllers here]  # Endpoints for Products, Users, etc.
+    │       │           └── service/                       # (Optional) Business logic services
+    │       │           └── model/                         # (Optional) Entity classes
+    │       └── resources/
+    │           ├── application.properties  # Spring Boot application settings
+    │           └── static/                  # (Optional) Static resources
+    │           └── templates/               # (Optional) Thymeleaf templates
+    └── .idea/                               # IntelliJ IDE project settings (optional)
+🚀 Getting Started
+Prerequisites
+Java 17 or above
 
 Maven installed
 
-MySQL server
+MySQL database server (running locally or remote)
 
-(Optional) Docker
+IDE like IntelliJ IDEA, Eclipse, or VS Code
 
-🖥️ Setting Up the Project
+Setup Instructions
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/your-username/freshmart_final.git
+cd freshmart_final/final_spring
+2. Configure Database Connection
+Open src/main/resources/application.properties and set up your database credentials:
 
-    Clone the Repository bash Copy code git clone https://github.com/your-username/freshmart.git cd freshmart
-    Setup the Backend (Server) bash Copy code cd server Configure your database in src/main/resources/application.properties:
+properties
+Copy
+Edit
+spring.datasource.url=jdbc:mysql://localhost:3306/freshmart
+spring.datasource.username=your-username
+spring.datasource.password=your-password
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+server.port=8080
+Tip: You can change server.port if you want the backend to run on a different port.
 
-properties Copy code spring.datasource.url=jdbc:mysql://localhost:3306/freshmart spring.datasource.username=your-db-username spring.datasource.password=your-db-password spring.jpa.hibernate.ddl-auto=update server.port=8080 Build and Run:
+3. Build and Run the Application
+Use Maven wrapper commands:
 
-bash Copy code ./mvnw clean install ./mvnw spring-boot:run Server will be available at ➡️ http://localhost:8080
+bash
+Copy
+Edit
+./mvnw clean install
+./mvnw spring-boot:run
+Once the server is running, access the application at:
+➡️ http://localhost:8080
 
-    Setup the Frontend (Client) bash Copy code cd client Install dependencies:
+✨ Features
+✅ User Authentication and Authorization (using Spring Security)
 
-bash Copy code npm install Run the React App:
+✅ Cross-Origin Resource Sharing (CORS) Support for API communication
 
-bash Copy code npm start Frontend will be available at ➡️ http://localhost:3000
+✅ Modular Project Structure (easy for scaling)
 
-Make sure the backend is running at localhost:8080 so the client can communicate with the server!
+✅ RESTful APIs for managing e-commerce entities
 
-    Setup the Model (Optional) bash Copy code cd model Depending on what the model folder contains:
+✅ Secure API Endpoints with role-based access control (future-ready)
 
-If it’s business logic: Connect it inside server codebase (/server).
+✅ Docker Compatibility for containerized deployment
 
-If it’s an ML model: Serve predictions via APIs or batch jobs.
+✅ Scalable Architecture (good base for microservices if needed)
 
-✨ Features 🛒 Product Listings: Browse products via APIs
+📄 Future Enhancements
+Payment Gateway Integration
 
-👤 User Authentication: Secure login and signup
+Product Search and Filtering APIs
 
-🛡️ Protected Routes: Spring Security + CORS setup
+User Role Management (Admin, Customer)
 
-📦 Order Management: Place, view, and manage orders
+JWT Authentication
 
-🖥️ Responsive UI: React-based dynamic frontend
+API Documentation with Swagger/OpenAPI
 
-📊 Scalable Architecture: Backend ready for microservices and scaling
-
-🐳 Docker Ready: Easy containerization for production
-
-📂 Detailed Project Structure plaintext Copy code freshmart/ ├── client/ │ ├── public/ │ ├── src/ │ │ ├── components/ │ │ ├── pages/ │ │ ├── services/ │ │ └── App.js │ ├── package.json │ └── README.md │ ├── server/ │ ├── src/ │ │ ├── main/ │ │ │ ├── java/com/ecommerce/ │ │ │ │ ├── controller/ │ │ │ │ ├── configuration/ │ │ │ │ ├── model/ │ │ │ │ ├── service/ │ │ │ │ └── ECommerceApplication.java │ │ │ └── resources/application.properties │ ├── pom.xml │ ├── model/ │ ├── app.py │ └── README.md 📄 Future Enhancements 🛒 Cart Management Features
-
-📦 Admin Dashboard
-
-🔐 JWT Authentication
-
-🚚 Integration with Payment Gateway (Stripe, Razorpay)
-
-🛠️ Cloud Deployment on AWS / Azure
-
-📜 API Documentation with Swagger
+🚀 FreshMart: Powering E-Commerce One API at a Time! 🚀
